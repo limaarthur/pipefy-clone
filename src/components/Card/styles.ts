@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -27,6 +27,19 @@ export const Container = styled.div`
     border-radius: 2px;
     margin-top: 0.3rem;
   }
+
+  ${props => props.isDragging && css` // Irá gerar a borda tracejada ao arrastar
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    padding-top: 2rem; // observar
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: grabbing;
+
+    p, img, header {
+      opacity: 0;
+    }
+  `}
 `;
 
 export const Label = styled.span`
